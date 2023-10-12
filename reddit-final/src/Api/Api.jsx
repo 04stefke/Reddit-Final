@@ -5,6 +5,7 @@ const search = 'https://www.reddit.com/search.json?q='
 export const fetchPosts = async(selectedSubreddit) => {
     try{    
         const response = await fetch(`https://www.reddit.com${selectedSubreddit}/.json`)
+        console.log(response)
         if(!response.ok){
             throw new Error('Posts response not ok!')
         }
