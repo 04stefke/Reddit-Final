@@ -11,3 +11,10 @@ body{
     border: none;
     padding-bottom: 30px;
 }
+
+.page{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 150px;
+    margin-right: 50px ;
+}

@@ -6,8 +6,7 @@ export const postsSlice = createSlice({
     initialState: {
         posts: [],
         searchTerm: '',
-        selectedSubreddit: 'r/posts/',
-        fetchingData: false
+        selectedSubreddit: 'r/pics/',
     }, 
     reducers: {
         setPosts (state, action) {
@@ -18,9 +17,6 @@ export const postsSlice = createSlice({
         },
         setSelectedSubreddit (state, action) {
             state.selectedSubreddit = action.payload
-        },
-        setFetchingData (state, action) {
-            state.fetchingData = action.payload
         }
     }
 })
@@ -36,25 +32,22 @@ export default postsSlice.reducer
 
 export const fetchPostsData = (selectedSubreddit) => async(dispatch) => {
     try{
-        dispatch(setFetchingData(true))
         const postsData = await fetchPosts(selectedSubreddit)
         console.log(postsData)
         dispatch(setPosts(postsData))
-        dispatch(setFetchingData(false))
-    } catch(err) {
-        dispatch(setFetchingData(false))
+      
+    } catch(err) { 
         console.error('Cannot grab posts data', err)
     }
 }
 
 export const fetchSearchData = (searchItem) => async(dispatch) => {
+    if(searchItem !== ''){
     try{
-        dispatch(setFetchingData(true))
         const searchData = await fetchSearch(searchItem)
         dispatch(setSearchTerm(searchData))
-        dispatch(setFetchingData(false))
+      
     } catch(err) {
-        dispatch(setFetchingData(false))
         console.error('Cannot get search data', err)
-    }
+    }}
 }

@@ -9,7 +9,14 @@ function App() {
     <div className="App">
       <Header/>
       <hr className='component-divider' />
-      <Subreddits/>
+      <div className='page'>
+       
+      <Routes>
+        <Route path='/' element={<Posts/>}></Route>
+      </Routes>
+       <Subreddits/>
+      </div>
+      
     </div>
   );
 }
