@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { fetchPostsData } from './postsSlice'
 import { Link } from 'react-router-dom'
@@ -8,6 +8,7 @@ const Posts = () => {
     const postsData = useSelector((state) => state.posts.posts?.data?.children)
     const searchTerm = useSelector((state) => state.posts.searchTerm)
     const selectedSubreddit = useSelector((state) => state.posts.selectedSubreddit)
+    const postList = useRef()
 
     useEffect(() => {
         dispatch(fetchPostsData(selectedSubreddit))
@@ -45,7 +46,15 @@ const Posts = () => {
     
   return (
     <div className=''>
-        {postsItem}
+       <div>
+      {searchTerm !== '' && (
+          <h1>Searchterm: {searchTerm}</h1>
+        )}
+        {searchTerm === '' && (
+          <h1>Subreddit: {selectedSubreddit}</h1>
+        )} 
+      </div>
+      <div ref={postList}>{postsItem}</div>
     </div>
   )
 }

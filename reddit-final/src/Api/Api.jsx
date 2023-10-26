@@ -5,7 +5,6 @@ const search = 'https://www.reddit.com/search.json?q='
 export const fetchPosts = async(selectedSubreddit) => {
     try{    
         const response = await fetch(`${endpoint}/${selectedSubreddit}.json`)
-        console.log(response)
         if(!response.ok){
             throw new Error('Posts response not ok!')
         }
@@ -36,7 +35,7 @@ export const fetchComments = async(selectedComments) => {
             throw new Error('Comments response not ok')
         }
         const data = await response.json()
-        return data
+        return data[1]
     } catch(error){
         console.error('Can not fetch comments', error)
     }

@@ -12,7 +12,7 @@ export const postsSlice = createSlice({
         setPosts (state, action) {
             state.posts = action.payload
         },
-        setSearchTerm (state, action) {
+        setSearch (state, action) {
             state.searchTerm = action.payload
         },
         setSelectedSubreddit (state, action) {
@@ -23,9 +23,8 @@ export const postsSlice = createSlice({
 
 export const {
     setPosts,
-    setSearchTerm,
-    setSelectedSubreddit,
-    setFetchingData
+    setSearch,
+    setSelectedSubreddit  
 } = postsSlice.actions
 
 export default postsSlice.reducer
@@ -33,7 +32,6 @@ export default postsSlice.reducer
 export const fetchPostsData = (selectedSubreddit) => async(dispatch) => {
     try{
         const postsData = await fetchPosts(selectedSubreddit)
-        console.log(postsData)
         dispatch(setPosts(postsData))
       
     } catch(err) { 
@@ -45,7 +43,7 @@ export const fetchSearchData = (searchItem) => async(dispatch) => {
     if(searchItem !== ''){
     try{
         const searchData = await fetchSearch(searchItem)
-        dispatch(setSearchTerm(searchData))
+        dispatch(setPosts(searchData))
       
     } catch(err) {
         console.error('Cannot get search data', err)
