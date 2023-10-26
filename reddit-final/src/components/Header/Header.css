@@ -1,0 +1,64 @@
+.logo{
+    width: 70px;
+
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 10px 0 10px;
+    background-color: var(--secondary-bgc);
+}
+.search-bar{
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:var(--primary-bgc);
+    border-radius: 60px;
+    padding: 5px;
+}
+
+.search-bar input {
+    border: none;
+    background-color: transparent;
+    flex: 1;
+    outline: none;
+    padding: 5px;
+    font-size: 15px;
+    color: var(--color);
+    text-indent: 10px;
+
+}
+
+::placeholder{
+    
+    color: var(--color);
+}
+
+.search-bar button {
+    border: 0;
+    background-color:var( --secondary-bgc);
+    border-radius: 50px;
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.search-bar button i {
+    background-color: var( --secondary-bgc);
+    width: 25px;
+}
+
+img{ 
+    width: 80px;
+    height: auto;
+    background-color:var(--secondary-bgc);
+}
+
+.reddit-logo{
+    background-color: var(--secondary-bgc);
+}

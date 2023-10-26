@@ -4,7 +4,7 @@ const search = 'https://www.reddit.com/search.json?q='
 
 export const fetchPosts = async(selectedSubreddit) => {
     try{    
-        const response = await fetch(`https://www.reddit.com${selectedSubreddit}/.json`)
+        const response = await fetch(`${endpoint}/${selectedSubreddit}.json`)
         console.log(response)
         if(!response.ok){
             throw new Error('Posts response not ok!')
@@ -18,7 +18,7 @@ export const fetchPosts = async(selectedSubreddit) => {
 
 export const fetchSearch = async(searchItem) => {
     try{
-        const response = await fetch(`${search}${searchItem}.json`)
+        const response = await fetch(`${search}${searchItem}`)
         if(!response.ok){
             throw new Error('Search response not ok')
         }
@@ -31,7 +31,7 @@ export const fetchSearch = async(searchItem) => {
 
 export const fetchComments = async(selectedComments) => {
     try{
-        const response = await fetch(`${endpoint}${selectedComments}.json`)
+        const response = await fetch(`${endpoint}/${selectedComments}.json`)
         if(!response.ok){
             throw new Error('Comments response not ok')
         }
@@ -49,7 +49,7 @@ export const fetchSubreddits = async() => {
             throw new Error('Subreddit response not ok')
         }
         const data = await response.json()
-        return data.data.children
+        return data
     } catch(error){
         console.error('Can not fetch subreddits', error)
     }
