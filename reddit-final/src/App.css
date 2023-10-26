@@ -1,3 +1,13 @@
 *{
     margin: 0;
+    font-family: var(--ff);
+}
+
+body{
+    background-color: var(--primary-bgc)
+}
+
+.component-divider{
+    border: none;
+    padding-bottom: 30px;
 }

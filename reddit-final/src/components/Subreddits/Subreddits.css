@@ -1,0 +1,19 @@
+.subreddit-list{
+    display: inline-flex;
+    padding: 5px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.subreddit-list button {
+    background-color: var(--secondary-bgc);
+    padding: 5px;
+    border-radius: 10px ;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+

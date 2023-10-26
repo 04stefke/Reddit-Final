@@ -8,6 +8,8 @@ function App() {
   return (
     <div className="App">
       <Header/>
+      <hr className='component-divider' />
+      <Subreddits/>
     </div>
   );
 }

@@ -4,23 +4,16 @@ import { fetchSubreddits } from '../../Api/Api';
 export const subredditSlice = createSlice({
     name: 'subreddit',
     initialState: {
-        posts: [],
-        status: 'idle',
-        error: false
+        subreddits: [],
     },
     reducers: {
         setSubreddits (state, action) {
-            state.posts = action.payload
-            state.status = 'success'
-        },
-        setError (state) {
-            state.error = true
-            state.status = 'fail'
+            state.subreddits = action.payload
         }
     }
 })
 
-export const {setSubreddits, setError} = subredditSlice.actions;
+export const {setSubreddits} = subredditSlice.actions;
 
 export default subredditSlice.reducer
 
