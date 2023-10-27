@@ -3,6 +3,7 @@ import Posts from './components/Posts/Posts'
 import { Routes, Route } from 'react-router-dom';
 import Subreddits from './components/Subreddits/Subreddits';
 import Header from './components/Header/Header';
+import Comments from './components/Comments/Comments';
 function App() {
 
   return (
@@ -13,6 +14,7 @@ function App() {
        
       <Routes>
         <Route path='/' element={<Posts/>}></Route>
+        <Route path='/Comments' element={<Comments/>}></Route>
       </Routes>
        <Subreddits/>
       </div>

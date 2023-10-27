@@ -3,12 +3,26 @@ import {useDispatch, useSelector} from 'react-redux'
 import { fetchPostsData } from './postsSlice'
 import { Link } from 'react-router-dom'
 import './Posts.css'
+import { setButtons, setSelectedComments, setSelectedTitle } from '../Comments/commentsSlice'
 const Posts = () => {
     const dispatch = useDispatch()
     const postsData = useSelector((state) => state.posts.posts?.data?.children)
     const searchTerm = useSelector((state) => state.posts.searchTerm)
     const selectedSubreddit = useSelector((state) => state.posts.selectedSubreddit)
+    const commentsButton = useSelector((state) => state.comments.showButton)
     const postList = useRef()
+
+    const handleCommentsSelect = (comment, title) => {
+      if(commentsButton === 'Show Comments'){
+        dispatch(setSelectedComments(comment))
+        dispatch(setSelectedTitle(title))
+        dispatch(setButtons('Hide Comments'))
+      }
+      if(commentsButton === 'Hide Comments'){
+        dispatch(setSelectedComments(comment))
+        dispatch(setButtons('Show Comments'))
+      }
+    }
 
     useEffect(() => {
         dispatch(fetchPostsData(selectedSubreddit))
@@ -34,7 +48,7 @@ const Posts = () => {
                 </div>
             </div>
             <div className='commentsDiv'>
-                <Link to='/Comments' onClick={() => commentSelect(item.data.permalink, item.data.title)}>
+                <Link to='/Comments' onClick={() => handleCommentsSelect(item.data.permalink, item.data.title)}>
                 <button>Comments</button>
                 </Link>
             </div>

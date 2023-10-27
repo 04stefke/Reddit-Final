@@ -31,6 +31,7 @@ export const fetchSearch = async(searchItem) => {
 export const fetchComments = async(selectedComments) => {
     try{
         const response = await fetch(`${endpoint}/${selectedComments}.json`)
+        console.log(response)
         if(!response.ok){
             throw new Error('Comments response not ok')
         }
