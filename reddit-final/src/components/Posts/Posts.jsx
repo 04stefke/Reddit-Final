@@ -49,7 +49,7 @@ const Posts = () => {
             </div>
             <div className='commentsDiv'>
                 <Link to='/Comments' onClick={() => handleCommentsSelect(item.data.permalink, item.data.title)}>
-                <button>Comments</button>
+                <button className='to-comments'>Comments</button>
                 </Link>
             </div>
             <hr className='divider'></hr>
@@ -59,7 +59,7 @@ const Posts = () => {
     ) : <div>No Posts</div>
     
   return (
-    <div className=''>
+    <div className='posts-co'>
        <div>
       {searchTerm !== '' && (
           <h1>Searchterm: {searchTerm}</h1>
