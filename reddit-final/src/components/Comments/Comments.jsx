@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { fetchCommentsData, setButtons } from './commentsSlice'
 import { Link } from 'react-router-dom'
+import './Comments.css'
 function Comments() {
     const dispatch = useDispatch()
     const commentsData = useSelector((state) => state.comments.comments?.data?.children)
-    console.log(commentsData)
     const selectedComments = useSelector((state) => state.comments.selectedComments)
     const commentsButton = useSelector((state) => state.comments.showButton)
     const selectedTitle = useSelector((state) => state.comments.selectedTitle)
@@ -29,14 +29,17 @@ function Comments() {
                 <div className='comments-no'>
                     Comment: {index + 1}
                 </div>
+                <hr className='no-divider'/>
                 <div className='comment-data'>
                     <div className='content'>
-                        {item.data.body} asdasd
+                        <h4>{item.data.body}</h4>
                     </div>
+                    <hr className='data-divider'></hr>
                     <div className='comments-author'>
                         Author: {item.data.author}
                     </div>
                 </div>
+                <hr className='comment-divider'/>
             </div>
         ))
     ) : (
@@ -52,10 +55,8 @@ function Comments() {
                     <button className='btpButton'>Back To Posts</button>
                 </Link>
             </div>
-            <div className='title'>
-                <h3>{selectedTitle}</h3>
-            </div>
         </div>
+        <hr className='btpDivider'/>
         <div className='comment-itmes' ref={commentsList}>
             {commentsItem}
         </div>

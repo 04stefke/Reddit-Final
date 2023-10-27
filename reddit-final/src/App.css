@@ -14,7 +14,16 @@ body{
 
 .page{
     display: flex;
-    justify-content: space-between;
-    margin-left: 150px;
-    margin-right: 50px ;
+    justify-content: space-around;
+    margin-left:auto;
+    margin-right: auto ;
+    flex-direction: row;
+    height: auto;
+}
+
+@media (max-width: 800px) {
+  .page {
+      display: block;
+    /* Subreddits at the top */
+  }
 }

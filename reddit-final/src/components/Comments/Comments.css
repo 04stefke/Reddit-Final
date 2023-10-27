@@ -1,0 +1,51 @@
+.comment{
+    background-color: var(--secondary-bgc);
+    text-align: center;
+}
+
+.no-divider{
+    padding-top: 20px;
+    border: none;
+}
+
+.data-divider{
+    padding-top: 15px;
+    border: none;
+}
+div .comments-author{
+    text-align: start;
+}
+
+.comment-divider{
+    padding-top: 50px;
+    border: none;
+    background-color: var(--primary-bgc);
+}
+
+.comments-co{
+    max-width: 60%;
+    
+}
+
+.btpButton{
+    background-color: var(--color);
+    color: white;
+    padding: 5px;
+    border-radius: 10px ;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    position: fixed;
+}
+
+.btpDivider{
+    padding: 20px;
+    border: none;
+}
+
+@media (max-width:800px){
+    .comments-co{
+        max-width: 100%;
+    }
+}

@@ -11,12 +11,13 @@ function App() {
       <Header/>
       <hr className='component-divider' />
       <div className='page'>
-       
+       <Subreddits/>
+       <hr className='component-divider' />
       <Routes>
         <Route path='/' element={<Posts/>}></Route>
         <Route path='/Comments' element={<Comments/>}></Route>
       </Routes>
-       <Subreddits/>
+       
       </div>
       
     </div>

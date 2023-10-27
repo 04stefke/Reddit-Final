@@ -1,7 +1,12 @@
 .subreddit-list{
     text-align: center;
     padding: 5px;
+    
+}
+
+.subreddits{
     background-color: var(--secondary-bgc);
+    height: 100%;
 }
 
 .subreddit-list button {
@@ -12,6 +17,14 @@
     outline: none;
     cursor: pointer;
     font-size: 16px;
+}
+
+@media (max-width:800px) {
+    .subreddit-list{
+        display: inline-flex;
+        flex-wrap: wrap;
+        
+    }
 }
 
 
